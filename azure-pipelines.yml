@@ -23,4 +23,5 @@ steps:
     WS_WSS_URL: $(WSS_URL)
     WS_PRODUCTNAME: AZDO_$(System.TeamProject)
     WS_PROJECTNAME: $(Build.Repository.Name)_$(Build.SourceBranchName)
+    WS_LOG_LEVEL: DEBUG
   displayName: 'Mend Unified Agent Scan'
