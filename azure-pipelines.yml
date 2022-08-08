@@ -19,5 +19,3 @@ steps:
     echo Unified Agent downloaded successfully
     java -jar wss-unified-agent.jar
 - task: WhiteSource@21
-  inputs:
-    cwd: '$(System.DefaultWorkingDirectory)'
