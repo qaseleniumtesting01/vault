@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -17,11 +18,6 @@ steps:
     curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
     echo Unified Agent downloaded successfully
     java -jar wss-unified-agent.jar
-  env:
-    WS_APIKEY: $(APIKEY)
-    WS_USERKEY: $(USERKEY)
-    WS_WSS_URL: $(WSS_URL)
-    WS_PRODUCTNAME: AZDO_$(System.TeamProject)
-    WS_PROJECTNAME: $(Build.Repository.Name)_$(Build.SourceBranchName)
-    WS_LOG_LEVEL: DEBUG
-  displayName: 'Mend Unified Agent Scan'
+- task: WhiteSource@21
+  inputs:
+    cwd: '$(System.DefaultWorkingDirectory)'
