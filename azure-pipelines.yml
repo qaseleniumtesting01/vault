@@ -1,5 +1,4 @@
 # Starter pipeline
-
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -11,11 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo "Running Unified Agent on Hasicorp Vault"
-  displayName: 'Running UA on Vault'
-
-- script: |
-    curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
-    echo Unified Agent downloaded successfully
-    java -jar wss-unified-agent.jar
 - task: WhiteSource@21
+  inputs:
+    cwd: '$(System.DefaultWorkingDirectory)'
+    projectName: 'Vault2'
+    configuration: 'LOG.LEVEL=DEBUG'
